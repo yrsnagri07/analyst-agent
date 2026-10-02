@@ -1,8 +1,7 @@
 # Analyst Agent: An Autonomous ReAct-Driven Framework for Empirical Tabular Analytics via Sandboxed Code Generation and Self-Correcting Execution Loops
 
 **Author**: Yogesh Nagri  
-**Affiliation**: Department of Computer Science & Engineering  
-**Correspondence**: yrsnagri07  
+**Affiliation**: Department of Information Technology  
 **Date**: October 2026  
 
 ---
