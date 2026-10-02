@@ -2,9 +2,12 @@
 
 import os
 from typing import Any, Generator, Optional
+from dotenv import load_dotenv
 import pandas as pd
 from google import genai
 from google.genai import types
+
+load_dotenv()
 
 from profiling import profile_dataframe, format_profile_for_llm
 from prompts import SYSTEM_PROMPT, build_initial_prompt
@@ -12,7 +15,7 @@ from sandbox import run_code_sandbox
 
 MAX_STEPS = 8
 MAX_CONSECUTIVE_ERRORS = 3
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-3.5-flash-lite"
 
 
 def get_gemini_api_key() -> Optional[str]:
@@ -358,10 +361,10 @@ def run_agent_loop(
                     )
                 )
 
-        # Feed back function response parts to the model
+        # Feed back function response parts to the model using role='user'
         contents.append(
             types.Content(
-                role="tool",
+                role="user",
                 parts=function_responses
             )
         )

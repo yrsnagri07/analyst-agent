@@ -220,11 +220,13 @@ def _worker_exec(df: pd.DataFrame, code: str, queue: Any) -> None:
         sys.stdout = old_stdout
 
     raw_stdout = stdout_capture.getvalue()
+    updated_df = exec_globals.get("df") if error_msg is None and isinstance(exec_globals.get("df"), pd.DataFrame) else None
     queue.put({
         "stdout": raw_stdout,
         "result": result_val,
         "fig": fig_val,
         "error": error_msg,
+        "df": updated_df,
     })
 
 
@@ -288,11 +290,13 @@ def run_code_sandbox(df: pd.DataFrame, code: str, timeout: int = TIMEOUT_SECONDS
         result = exec_res.get("result")
         fig = exec_res.get("fig")
         error = exec_res.get("error")
+        res_df = exec_res.get("df")
     else:
         stdout = ""
         result = None
         fig = None
         error = "Process terminated unexpectedly without returning output."
+        res_df = None
 
     # Format result if provided
     result_str = ""
@@ -332,4 +336,5 @@ def run_code_sandbox(df: pd.DataFrame, code: str, timeout: int = TIMEOUT_SECONDS
         "fig": fig,
         "error": error,
         "output_str": final_output,
+        "df": res_df if res_df is not None else df,
     }

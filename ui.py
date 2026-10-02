@@ -123,28 +123,87 @@ html, body, [class*="css"], .stMarkdown, .stButton, .stTextInput, .stAlert {
     border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
-/* Final Answer Box */
-.final-card {
-    border: 1px solid rgba(128, 128, 128, 0.2);
+/* KPI Grid */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+.kpi-card {
+    background: rgba(128, 128, 128, 0.05);
+    border: 1px solid rgba(128, 128, 128, 0.15);
     border-radius: 8px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    background: transparent;
+    padding: 0.75rem 1rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
 }
-.final-summary {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-top: 0.75rem;
-    margin-bottom: 1rem;
+.kpi-card:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+    transform: translateY(-1px);
 }
-.findings-title {
-    font-size: 0.8125rem;
-    font-weight: 600;
+.kpi-label {
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: rgba(128, 128, 128, 0.85);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+.kpi-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: inherit;
+    letter-spacing: -0.02em;
+}
+
+/* Final Answer Box */
+.final-card {
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: rgba(37, 99, 235, 0.02);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+.final-summary {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-top: 0.875rem;
+    margin-bottom: 1.25rem;
+    color: inherit;
+}
+.findings-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(128, 128, 128, 0.9);
     margin-top: 1rem;
+    margin-bottom: 0.6rem;
+}
+.finding-item {
+    background: rgba(128, 128, 128, 0.04);
+    border-left: 3px solid #2563EB;
+    border-radius: 0 6px 6px 0;
+    padding: 0.6rem 0.875rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Follow-up suggestions */
+.followup-container {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+}
+.followup-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(128, 128, 128, 0.8);
+    text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
 

@@ -87,6 +87,15 @@ def load_csv(file_buffer: Any, file_name: str = "uploaded.csv") -> pd.DataFrame:
         df = pd.read_csv(io.StringIO(decoded_text), sep=delimiter)
         if df.empty:
             raise CSVLoadError("The uploaded CSV file is empty.")
+
+        # Auto-parse date columns for convenience
+        for col in df.columns:
+            if "date" in str(col).lower() or "time" in str(col).lower():
+                try:
+                    df[col] = pd.to_datetime(df[col])
+                except Exception:
+                    pass
+
         return df
     except Exception as e:
         raise CSVLoadError(f"Failed to parse CSV data: {str(e)}") from e
