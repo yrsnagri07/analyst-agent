@@ -207,46 +207,6 @@ html, body, [class*="css"], .stMarkdown, .stButton, .stTextInput, .stAlert {
     margin-bottom: 0.5rem;
 }
 
-/* Tabs styling */
-.stTabs [data-baseweb="tab-list"] {
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-}
-.stTabs [data-baseweb="tab"] {
-    font-size: 0.875rem !important;
-    font-weight: 500 !important;
-    padding: 0.5rem 1rem !important;
-    border-radius: 6px 6px 0 0 !important;
-    background: transparent !important;
-    color: rgba(128, 128, 128, 0.8) !important;
-}
-.stTabs [aria-selected="true"] {
-    color: #2563EB !important;
-    border-bottom: 2px solid #2563EB !important;
-    background: rgba(37, 99, 235, 0.05) !important;
-}
-
-/* Viva Architecture & FAQ */
-.viva-card {
-    border: 1px solid rgba(128, 128, 128, 0.15);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    background: rgba(128, 128, 128, 0.03);
-}
-.viva-q {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: inherit;
-    margin-bottom: 0.5rem;
-}
-.viva-a {
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: rgba(128, 128, 128, 0.9);
-}
-
 /* Ghost button styling */
 div[data-testid="stHorizontalBlock"] button {
     font-size: 0.8rem !important;
